@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
+		<class>com.telefonica.jee.model.Producto</class>
+		<class>com.telefonica.jee.model.Socio</class>
+		<class>com.telefonica.jee.model.Venta</class>
+		<class>com.telefonica.jee.model.Empleado</class>
+		<class>com.telefonica.jee.model.Direccion</class>
+		<class>com.telefonica.jee.model.Autor</class>
+		<class>com.telefonica.jee.model.Libro</class>
+		<class>com.telefonica.jee.model.Articulo</class>
+		<class>com.telefonica.jee.model.Etiqueta</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://127.0.0.1:3301/ted" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+			<property name="javax.persistence.schema-generation.scripts.action" value="none" />
+			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+<!-- 		<property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->
+			
+		</properties>
+
+	</persistence-unit>
+</persistence>

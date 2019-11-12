@@ -39,6 +39,7 @@ public class Main {
 		createNativeQuery();
 		createQueryWithParametersByPosition();
 		createQueryWithParametersByName();
+		getNumberOfProducts();
 
 		// Ejemplos de transacciones
 		persistProductos();
@@ -52,6 +53,10 @@ public class Main {
 		manyToOneAssociation();
 		manyToManyAssociation();
 		
+		
+		getNumberOfProducts();
+
+		
 		// Error Lazy Initialization: solucionar con EAGER o utilizar un .size() cuando consideremos para forzar a JPA recuperar esos datos
 
 		// Como evitar borrar los elementos hijos de una entidad cuando ésta es borrada
@@ -59,6 +64,16 @@ public class Main {
 		// Por ejemplo si queremos borrar un autor y mantener los libros
 		
 		emf.close();
+	}
+
+	private static void getNumberOfProducts() {
+		initializeManager();
+		
+		TypedQuery<Long> query = manager.createQuery(
+				"SELECT COUNT(p) FROM Producto p", Long.class);
+		Long numprod = query.getSingleResult();
+		System.out.println("El numero de productos es: " + numprod);
+		closeManager();
 	}
 
 	private static void manyToManyAssociation() {
